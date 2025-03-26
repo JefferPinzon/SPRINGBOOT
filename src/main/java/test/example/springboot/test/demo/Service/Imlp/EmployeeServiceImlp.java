@@ -1,5 +1,4 @@
 package test.example.springboot.test.demo.Service.Imlp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import test.example.springboot.test.demo.Model.Employee;
 import test.example.springboot.test.demo.Repository.EmployeeRepository;
@@ -40,7 +39,7 @@ class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployee(Employee employee,long id) {
         Employee existingEmployee = employeeRepository.findById(id)
-                .orElseThrow(()->new RuntimeException());
+                .orElseThrow(RuntimeException::new);
 
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());

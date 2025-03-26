@@ -1,5 +1,4 @@
 package test.example.springboot.test.demo.controller;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +11,7 @@ import java.util.Optional;
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -31,19 +30,19 @@ public class EmployeeController {
 
     @GetMapping("{id}")
     public ResponseEntity<Optional<Employee>> getEmployeeById(@PathVariable("id") long id){
-        return new ResponseEntity<Optional<Employee>>(employeeService.getEmployeeById(id),HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
     }
 
     @PutMapping("{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id,
                                                    @RequestBody Employee employee){
-        return new ResponseEntity<Employee>(employeeService.updateEmployee(employee,id),HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.updateEmployee(employee, id), HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id){
         employeeService.deleteEmployee(id);
-        return new ResponseEntity<String>("Employee deleted successfully!.", HttpStatus.OK);
+        return new ResponseEntity<>("Employee deleted successfully!.", HttpStatus.OK);
 
     }
 }
