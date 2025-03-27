@@ -26,6 +26,42 @@ El proyecto proporciona una API RESTful para gestionar empleados, permitiendo re
 - Spring Boot Actuator
 - Spring Boot Test
 ## Configuración
+Paso 1: Crear un Nuevo Proyecto Spring Boot
+Usar Spring Initializr:
+
+Ve a Spring Initializr.
+Selecciona las siguientes opciones:
+Project: Maven Project
+Language: Java
+Spring Boot: (Selecciona la versión más reciente, por ejemplo, 3.4.4)
+Project Metadata:
+Group: test.example
+Artifact: springboot-test-demo
+Name: springboot-test-demo
+Description: Demo project for Spring Boot
+Package name: test.example.springboot.test.demo
+Packaging: Jar
+Java: 17 (o la versión que estés utilizando)
+Dependencies: Agrega las siguientes dependencias:
+Spring Web
+Spring Data JPA
+MariaDB Driver
+Spring Boot DevTools (opcional, para desarrollo)
+Spring Boot Starter Test (para pruebas)
+Generar el Proyecto:
+
+Haz clic en el botón "Generate" para descargar el proyecto como un archivo ZIP.
+Descomprime el archivo ZIP en tu máquina.
+Paso 2: Importar el Proyecto en tu IDE
+Abrir tu IDE:
+
+Abre tu IDE favorito (IntelliJ IDEA, Eclipse, etc.).
+Importar el Proyecto:
+
+Selecciona "Importar proyecto" y elige la carpeta donde descomprimiste el proyecto.
+Asegúrate de que el proyecto se importe como un proyecto Maven.
+Paso 3: Configurar el Archivo pom.xml
+Asegúrate de que tu archivo pom.xml contenga las dependencias necesarias. Aquí tienes un ejemplo básico:
 
 Antes de ejecutar la aplicación, asegúrate de tener MariaDB instalado y en funcionamiento. Crea una base de datos llamada `unit_test_db` y configura el usuario y la contraseña según sea necesario.
 
